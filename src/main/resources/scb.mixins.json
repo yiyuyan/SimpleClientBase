@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "cn.ksmcbrigade.scb.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "SimpleClientBase.refmap.json",
+  "mixins": [
+    "BlockMixin",
+    "BlockStateBaseMixin",
+    "ConnectionMixin"
+  ],
+  "client": [
+    "AccessibilityOptionsScreenMixin",
+    "CameraMixin",
+    "ClientLevelMixin",
+    "ConnectingScreenMixin",
+    "GameRendererMixin",
+    "GuiMixin",
+    "MinecraftMixin",
+    "OptionInstanceMixin",
+    "ScreenMixin",
+    "ServersListScreenMixin",
+    "TitleScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

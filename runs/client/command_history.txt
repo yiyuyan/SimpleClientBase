@@ -1,0 +1,5 @@
+/kill
+/tp ~ ~10 ~
+/tp ~ ~100 ~
+/time set midnight
+/give @s minecraft:pumpkin
