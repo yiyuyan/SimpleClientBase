@@ -1,7 +1,11 @@
 package cn.ksmcbrigade.scb.module;
 
-import cn.ksmcbrigade.scb.BuiltInModules.HUD;
-import cn.ksmcbrigade.scb.module.events.*;
+import cn.ksmcbrigade.scb.module.events.block.BlockShapeEvent;
+import cn.ksmcbrigade.scb.module.events.misc.CheckHasEffectEvent;
+import cn.ksmcbrigade.scb.module.events.misc.GetOptionValueEvent;
+import cn.ksmcbrigade.scb.module.events.misc.TimerEvent;
+import cn.ksmcbrigade.scb.module.events.network.PacketEvent;
+import cn.ksmcbrigade.scb.module.events.render.*;
 import cn.ksmcbrigade.scb.uitls.ModuleUtils;
 import com.google.gson.JsonObject;
 import net.minecraft.client.Minecraft;
@@ -115,22 +119,26 @@ public class Module {
     public void playerPostTick(Minecraft MC,@Nullable Player player) throws Exception{}
     public void screenTick(Minecraft MC) throws Exception{}
 
-    public void getOptionInstanceEvent(Minecraft MC,GetOptionValueEvent event) throws Exception{}
+    public void getOptionInstanceEvent(Minecraft MC, GetOptionValueEvent event) throws Exception{}
 
-    public void fluidInCameraEvent(Minecraft MC,FluidTypeInCameraEvent event) throws Exception{}
+    public void fluidInCameraEvent(Minecraft MC, FluidTypeInCameraEvent event) throws Exception{}
 
-    public void blockShape(Minecraft MC,BlockShapeEvent event) throws Exception{}
-    public void renderBlockEvent(Minecraft MC,RenderBlockEvent event) throws Exception{}
+    public void blockShape(Minecraft MC, BlockShapeEvent event) throws Exception{}
+    public void renderBlockEvent(Minecraft MC, RenderBlockEvent event) throws Exception{}
 
     public void packetEvent(Minecraft MC, PacketEvent event) throws Exception{}
 
-    public void zoomEvent(Minecraft MC,ZoomEvent event) throws Exception{}
-    public void renderTexOverlayEvent(Minecraft MC,RenderOverlayEvent event) throws Exception{}
-    public void dayTime(Minecraft MC,DayTimeEvent event) throws Exception{}
+    public void zoomEvent(Minecraft MC, ZoomEvent event) throws Exception{}
+    public void renderTexOverlayEvent(Minecraft MC, RenderOverlayEvent event) throws Exception{}
+    public void dayTime(Minecraft MC, DayTimeEvent event) throws Exception{}
 
-    public void timerChange(Minecraft MC,TimerEvent event) throws Exception{}
+    public void timerChange(Minecraft MC, TimerEvent event) throws Exception{}
 
     public void disabled(Minecraft MC) throws Exception{}
 
     public void MCClose(Minecraft MC) throws Exception{}
+
+    public void hasEffect(Minecraft mc, CheckHasEffectEvent event) throws Exception{}
+
+    public void renderFire(Minecraft mc, RenderFireEvent event) throws Exception{}
 }

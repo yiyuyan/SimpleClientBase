@@ -1,9 +1,19 @@
 package cn.ksmcbrigade.scb;
 
-import cn.ksmcbrigade.scb.BuiltInModules.*;
+import cn.ksmcbrigade.scb.BuiltInModules.combat.AutoRespawn;
+import cn.ksmcbrigade.scb.BuiltInModules.misc.MEMZ;
+import cn.ksmcbrigade.scb.BuiltInModules.movement.AirJump;
+import cn.ksmcbrigade.scb.BuiltInModules.movement.NoFall;
+import cn.ksmcbrigade.scb.BuiltInModules.movement.Timer;
+import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoBlindOverlay;
+import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoFireOverlay;
+import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoPumpkinOverlay;
+import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoUnderOverlay;
+import cn.ksmcbrigade.scb.BuiltInModules.render.*;
 import cn.ksmcbrigade.scb.alt.AltManager;
 import cn.ksmcbrigade.scb.commands.Help;
 import cn.ksmcbrigade.scb.commands.Pos;
+import cn.ksmcbrigade.scb.config.HUD02Config;
 import cn.ksmcbrigade.scb.config.HUDConfig;
 import cn.ksmcbrigade.scb.guis.group.Group;
 import cn.ksmcbrigade.scb.module.Module;
@@ -56,6 +66,7 @@ public class SimpleClientBase {
         }
         if(!init){
             modContainer.registerConfig(ModConfig.Type.CLIENT,HUDConfig.CONFIG_SPEC,"scb/scb-hud-config.toml");
+            modContainer.registerConfig(ModConfig.Type.CLIENT,HUD02Config.CONFIG_SPEC,"scb/scb-hud02-config.toml");
             init();
             LOGGER.info("Reloaded the HUD config.");
         }
@@ -86,6 +97,8 @@ public class SimpleClientBase {
 
         ClientRegistry.registerKeyBinding(HUDConfig.SET);
 
+        ClientRegistry.registerKeyBinding(HUD02Config.START);
+
         LOGGER.info("Register the keys.");
 
         new File("config").mkdirs();
@@ -112,6 +125,8 @@ public class SimpleClientBase {
 
         ModuleUtils.add(new OnlyDay());
         ModuleUtils.add(new NoPumpkinOverlay());
+        ModuleUtils.add(new NoBlindOverlay());
+        ModuleUtils.add(new NoFireOverlay());
         ModuleUtils.add(new Zoom());
 
         ModuleUtils.add(new Timer());
@@ -171,7 +186,9 @@ public class SimpleClientBase {
             AtomicBoolean no = new AtomicBoolean(false);
             modules.stream().filter(module -> module.type.group.renderer.title.equalsIgnoreCase(group.renderer.title)).forEach(module -> {
                 if(module.type.group!=group){
-                    group.add(module);
+                    if(!group.features.contains(module)){
+                        group.add(module);
+                    }
                     no.set(true);
                 }
             });

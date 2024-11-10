@@ -73,7 +73,7 @@ Details:
 Stacktrace:
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.Module.<init>(Module.java:40) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.Module.<init>(Module.java:56) ~[%23192!/:?] {re:classloading}
-	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.MEMZ.<init>(MEMZ.java:23) ~[%23192!/:?] {re:classloading}
+	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.render.ModulesList.MEMZ.<init>(MEMZ.java:23) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.SimpleClientBase.<clinit>(SimpleClientBase.java:46) ~[?:?] {re:classloading}
 	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized0(Native Method) ~[?:?] {}
 	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized(Unsafe.java:1160) ~[?:?] {}

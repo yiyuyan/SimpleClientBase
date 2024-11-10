@@ -52,7 +52,7 @@ Details:
 Stacktrace:
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.Module.<init>(Module.java:31) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.Module.<init>(Module.java:47) ~[%23192!/:?] {re:classloading}
-	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.AutoRespawn.<init>(AutoRespawn.java:12) ~[%23192!/:?] {re:classloading}
+	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.combat.AutoRespawn.<init>(AutoRespawn.java:12) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.SimpleClientBase.init(SimpleClientBase.java:109) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.SimpleClientBase.<init>(SimpleClientBase.java:68) ~[%23192!/:?] {re:classloading}
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[?:?] {}

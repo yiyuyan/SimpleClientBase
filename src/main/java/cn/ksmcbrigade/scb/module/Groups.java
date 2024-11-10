@@ -7,5 +7,6 @@ public class Groups {
     public static Group ITEM;
     public static Group BLOCK;
     public static Group RENDER;
+    public static Group OVERLAY;
     public static Group MISC;
 }

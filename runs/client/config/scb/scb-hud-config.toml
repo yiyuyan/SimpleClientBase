@@ -26,4 +26,9 @@ group5_text_color = -1
 #For features
 enabled_text_color = -256
 disabled_text_color = -1
+#For group6
+group6_title = "OVERLAY"
+group6_background_color = -16776961
+group6_cur_background_color = -65536
+group6_text_color = -1
 

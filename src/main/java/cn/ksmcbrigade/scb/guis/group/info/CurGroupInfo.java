@@ -1,10 +1,8 @@
 package cn.ksmcbrigade.scb.guis.group.info;
 
-import cn.ksmcbrigade.scb.BuiltInModules.HUD;
 import cn.ksmcbrigade.scb.config.HUDConfig;
 import cn.ksmcbrigade.scb.guis.group.Group;
 import cn.ksmcbrigade.scb.module.Groups;
-import cn.ksmcbrigade.scb.module.ModuleType;
 
 import java.util.Objects;
 
@@ -38,6 +36,9 @@ public class CurGroupInfo {
         if(!Objects.equals(Groups.RENDER.renderer.title, group.renderer.title)){
             Groups.RENDER.cur(false);
         }
+        if(!Objects.equals(Groups.OVERLAY.renderer.title, group.renderer.title)){
+            Groups.OVERLAY.cur(false);
+        }
         if(!Objects.equals(Groups.MISC.renderer.title, group.renderer.title)){
             Groups.MISC.cur(false);
         }
@@ -59,6 +60,10 @@ public class CurGroupInfo {
             return;
         }
         if(cur.equals(Groups.RENDER)){
+            cur(Groups.OVERLAY);
+            return;
+        }
+        if(cur.equals(Groups.OVERLAY)){
             cur(Groups.MISC);
             return;
         }
@@ -86,8 +91,12 @@ public class CurGroupInfo {
             cur(Groups.ITEM);
             return;
         }
-        if(cur.equals(Groups.MISC)){
+        if(cur.equals(Groups.OVERLAY)){
             cur(Groups.RENDER);
+            return;
+        }
+        if(cur.equals(Groups.MISC)){
+            cur(Groups.OVERLAY);
             return;
         }
         cur(Groups.COMBAT);

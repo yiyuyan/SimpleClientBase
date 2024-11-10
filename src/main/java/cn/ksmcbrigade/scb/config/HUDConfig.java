@@ -40,11 +40,17 @@ public class HUDConfig {
     public static final ModConfigSpec.ConfigValue<Integer> GROUP4_CUR_BACKGROUND_COLORd = BUILDER.define("group4_cur_background_color", Color.RED.getRGB());
     public static final ModConfigSpec.ConfigValue<Integer> GROUP4_TEXT_COLORd = BUILDER.define("group4_text_color", Color.WHITE.getRGB());
 
-    //Group4
+    //Group5
     public static final ModConfigSpec.ConfigValue<String> GROUP5_TITLEd = BUILDER.comment("For group5").define("group5_title","MISC");
     public static final ModConfigSpec.ConfigValue<Integer> GROUP5_BACKGROUND_COLORd = BUILDER.define("group5_background_color", Color.BLUE.getRGB());
     public static final ModConfigSpec.ConfigValue<Integer> GROUP5_CUR_BACKGROUND_COLORd = BUILDER.define("group5_cur_background_color", Color.RED.getRGB());
     public static final ModConfigSpec.ConfigValue<Integer> GROUP5_TEXT_COLORd = BUILDER.define("group5_text_color", Color.WHITE.getRGB());
+
+    //Group6
+    public static final ModConfigSpec.ConfigValue<String> GROUP6_TITLEd = BUILDER.comment("For group6").define("group6_title","OVERLAY");
+    public static final ModConfigSpec.ConfigValue<Integer> GROUP6_BACKGROUND_COLORd = BUILDER.define("group6_background_color", Color.BLUE.getRGB());
+    public static final ModConfigSpec.ConfigValue<Integer> GROUP6_CUR_BACKGROUND_COLORd = BUILDER.define("group6_cur_background_color", Color.RED.getRGB());
+    public static final ModConfigSpec.ConfigValue<Integer> GROUP6_TEXT_COLORd = BUILDER.define("group6_text_color", Color.WHITE.getRGB());
 
     public static final ModConfigSpec.ConfigValue<Integer> MODULE_ENABLED_COLORd = BUILDER.comment("For features").define("enabled_text_color",Color.YELLOW.getRGB());
     public static final ModConfigSpec.ConfigValue<Integer> MODULE_DISABLED_COLORd = BUILDER.define("disabled_text_color",Color.WHITE.getRGB());
@@ -75,11 +81,18 @@ public class HUDConfig {
     public static final NeoModConfigEx GROUP4_CUR_BACKGROUND_COLOR = new NeoModConfigEx(GROUP4_CUR_BACKGROUND_COLORd,CONFIG_SPEC);
     public static final NeoModConfigEx GROUP4_TEXT_COLOR = new NeoModConfigEx(GROUP4_TEXT_COLORd,CONFIG_SPEC);
 
-    //Group4
+    //Group5
     public static final NeoModConfigStringEx GROUP5_TITLE = new NeoModConfigStringEx(GROUP5_TITLEd,CONFIG_SPEC);
     public static final NeoModConfigEx GROUP5_BACKGROUND_COLOR = new NeoModConfigEx(GROUP5_BACKGROUND_COLORd,CONFIG_SPEC);
     public static final NeoModConfigEx GROUP5_CUR_BACKGROUND_COLOR = new NeoModConfigEx(GROUP5_CUR_BACKGROUND_COLORd,CONFIG_SPEC);
     public static final NeoModConfigEx GROUP5_TEXT_COLOR = new NeoModConfigEx(GROUP5_TEXT_COLORd,CONFIG_SPEC);
+
+
+    //Group6
+    public static final NeoModConfigStringEx GROUP6_TITLE = new NeoModConfigStringEx(GROUP6_TITLEd,CONFIG_SPEC);
+    public static final NeoModConfigEx GROUP6_BACKGROUND_COLOR = new NeoModConfigEx(GROUP6_BACKGROUND_COLORd,CONFIG_SPEC);
+    public static final NeoModConfigEx GROUP6_CUR_BACKGROUND_COLOR = new NeoModConfigEx(GROUP6_CUR_BACKGROUND_COLORd,CONFIG_SPEC);
+    public static final NeoModConfigEx GROUP6_TEXT_COLOR = new NeoModConfigEx(GROUP6_TEXT_COLORd,CONFIG_SPEC);
 
     public static final NeoModConfigEx MODULE_ENABLED_COLOR = new NeoModConfigEx(MODULE_ENABLED_COLORd,CONFIG_SPEC);
     public static final NeoModConfigEx MODULE_DISABLED_COLOR = new NeoModConfigEx(MODULE_DISABLED_COLORd,CONFIG_SPEC);
@@ -100,7 +113,8 @@ public class HUDConfig {
         Groups.ITEM = new Group(new GroupRenderer(0,24,50,12,HUDConfig.GROUP2_BACKGROUND_COLOR.get(),HUDConfig.GROUP2_CUR_BACKGROUND_COLOR.get(),HUDConfig.GROUP2_TEXT_COLOR.get(),HUDConfig.GROUP2_TITLE.get()), new ArrayList<>());
         Groups.BLOCK = new Group(new GroupRenderer(0,12,50,12,HUDConfig.GROUP3_BACKGROUND_COLOR.get(),HUDConfig.GROUP3_CUR_BACKGROUND_COLOR.get(),HUDConfig.GROUP3_TEXT_COLOR.get(),HUDConfig.GROUP3_TITLE.get()), new ArrayList<>());
         Groups.RENDER = new Group(new GroupRenderer(0,36,50,12,HUDConfig.GROUP4_BACKGROUND_COLOR.get(),HUDConfig.GROUP4_CUR_BACKGROUND_COLOR.get(),HUDConfig.GROUP4_TEXT_COLOR.get(),HUDConfig.GROUP4_TITLE.get()), new ArrayList<>());
-        Groups.MISC = new Group(new GroupRenderer(0,48,50,12,HUDConfig.GROUP5_BACKGROUND_COLOR.get(),HUDConfig.GROUP5_CUR_BACKGROUND_COLOR.get(),HUDConfig.GROUP5_TEXT_COLOR.get(),HUDConfig.GROUP5_TITLE.get()), new ArrayList<>());
+        Groups.OVERLAY = new Group(new GroupRenderer(0,48,50,12,HUDConfig.GROUP6_BACKGROUND_COLOR.get(),HUDConfig.GROUP6_CUR_BACKGROUND_COLOR.get(),HUDConfig.GROUP6_TEXT_COLOR.get(),HUDConfig.GROUP6_TITLE.get()), new ArrayList<>());
+        Groups.MISC = new Group(new GroupRenderer(0,60,50,12,HUDConfig.GROUP5_BACKGROUND_COLOR.get(),HUDConfig.GROUP5_CUR_BACKGROUND_COLOR.get(),HUDConfig.GROUP5_TEXT_COLOR.get(),HUDConfig.GROUP5_TITLE.get()), new ArrayList<>());
 
         ModuleType.init = false;
         ModuleType.init();

@@ -1,7 +1,14 @@
 package cn.ksmcbrigade.scb.module;
 
 import cn.ksmcbrigade.scb.command.Command;
-import cn.ksmcbrigade.scb.module.events.*;
+import cn.ksmcbrigade.scb.config.HUD02Config;
+import cn.ksmcbrigade.scb.guis.anotherFeatureList.FeatureList2;
+import cn.ksmcbrigade.scb.module.events.block.BlockShapeEvent;
+import cn.ksmcbrigade.scb.module.events.misc.CheckHasEffectEvent;
+import cn.ksmcbrigade.scb.module.events.misc.GetOptionValueEvent;
+import cn.ksmcbrigade.scb.module.events.misc.TimerEvent;
+import cn.ksmcbrigade.scb.module.events.network.PacketEvent;
+import cn.ksmcbrigade.scb.module.events.render.*;
 import cn.ksmcbrigade.scb.uitls.CommandUtils;
 import cn.ksmcbrigade.scb.uitls.JNAUtils;
 import cn.ksmcbrigade.scb.SimpleClientBase;
@@ -19,7 +26,6 @@ import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.io.File;
-import java.io.IOException;
 
 @EventBusSubscriber(value = Dist.CLIENT,modid = SimpleClientBase.MODID)
 public class HacksEventHandler {
@@ -87,6 +93,10 @@ public class HacksEventHandler {
 
         if(SimpleClientBase.screenKey.isDown()){
             MC.setScreen(new AccessibilityOptionsScreen(MC.screen,MC.options));
+        }
+
+        if(HUD02Config.START.isDown()){
+            MC.setScreen(new FeatureList2());
         }
 
         SimpleClientBase.modules.stream().toList().forEach(module -> {
@@ -366,6 +376,38 @@ public class HacksEventHandler {
         SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
             try {
                 module.timerChange(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event10(CheckHasEffectEvent event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.hasEffect(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event11(RenderFireEvent event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.renderFire(MC,event);
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -40,6 +40,7 @@ public class Info {
         Groups.BLOCK.render(context,textRenderer);
         Groups.ITEM.render(context,textRenderer);
         Groups.RENDER.render(context,textRenderer);
+        Groups.OVERLAY.render(context, textRenderer);
         Groups.MISC.render(context,textRenderer);
         if(!this.onGroup){
             if(this.groupInfo.cur.features.isEmpty() && SimpleClientBase.checkGroupEmpty(this.groupInfo.cur)){

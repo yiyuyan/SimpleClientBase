@@ -47,7 +47,7 @@ Details:
 	Caused by 0: java.lang.ExceptionInInitializerError
 		at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.ModuleType.<init>(ModuleType.java:17) ~[%23192!/:?] {re:classloading}
 		at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.ModuleType.<clinit>(ModuleType.java:8) ~[%23192!/:?] {re:classloading}
-		at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.ModulesList.<init>(ModulesList.java:19) ~[%23192!/:?] {re:classloading}
+		at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.render.ModulesList.<init>(ModulesList.java:19) ~[%23192!/:?] {re:classloading}
 		at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.SimpleClientBase.<clinit>(SimpleClientBase.java:50) ~[?:?] {re:classloading}
 		at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized0(Native Method) ~[?:?] {}
 		at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized(Unsafe.java:1160) ~[?:?] {}
@@ -77,10 +77,10 @@ Details:
 Stacktrace:
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.ModuleType.values(ModuleType.java:6) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.ModuleType.check(ModuleType.java:23) ~[%23192!/:?] {re:classloading}
-	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.HUD.<clinit>(HUD.java:24) ~[%23192!/:?] {re:classloading}
+	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.render.HUD.<clinit>(HUD.java:24) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.ModuleType.<init>(ModuleType.java:17) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.module.ModuleType.<clinit>(ModuleType.java:8) ~[%23192!/:?] {re:classloading}
-	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.ModulesList.<init>(ModulesList.java:19) ~[%23192!/:?] {re:classloading}
+	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.BuiltInModules.render.ModulesList.<init>(ModulesList.java:19) ~[%23192!/:?] {re:classloading}
 	at TRANSFORMER/scb@1.0/cn.ksmcbrigade.scb.SimpleClientBase.<clinit>(SimpleClientBase.java:50) ~[?:?] {re:classloading}
 	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized0(Native Method) ~[?:?] {}
 	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized(Unsafe.java:1160) ~[?:?] {}

@@ -11,6 +11,7 @@ public class ModuleType {
     public static ModuleType BLOCK;
     public static ModuleType MOVEMENT;
     public static ModuleType RENDER;
+    public static ModuleType OVERLAY;
     public static ModuleType MISC;
 
     public Group group;
@@ -28,6 +29,7 @@ public class ModuleType {
             BLOCK = new ModuleType(Groups.BLOCK,"BLOCK");
             MOVEMENT = new ModuleType(Groups.ITEM,"MOVEMENT");
             RENDER = new ModuleType(Groups.RENDER,"RENDER");
+            OVERLAY = new ModuleType(Groups.OVERLAY,"OVERLAY");
             MISC = new ModuleType(Groups.MISC,"MISC");
 
             init = true;
