@@ -129,6 +129,9 @@ public class SimpleClientBase {
         ModuleUtils.add(new NoFireOverlay());
         ModuleUtils.add(new Zoom());
 
+        ModuleUtils.add(new OnlyMe());
+        ModuleUtils.add(new Chams());
+
         ModuleUtils.add(new Timer());
 
         ModuleUtils.add(new Module("TestModule", ModuleType.BLOCK));

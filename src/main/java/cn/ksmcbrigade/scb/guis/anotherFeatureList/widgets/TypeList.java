@@ -35,7 +35,7 @@ public class TypeList extends AbstractButton {
         SimpleClientBase.checkGroupEmpty(this.group);
         for (int i1 = 0; i1 < this.group.featureList.renderer.done; i1++) {
             Module module = this.group.featureList.renderer.featureRenderers.get(i1).feature;
-            FeatureRenderer renderer = instance.addWidget(new FeatureRenderer(this.getX(),this.getY()+this.getHeight()+(this.getWidth()/2)*i1,this.getWidth(),(this.getWidth()/2),this.color,this.cur_color,this.enabled_color,module,this.group));
+            FeatureRenderer renderer = instance.addWidget(new FeatureRenderer(instance,this.getX(),this.getY()+this.getHeight()+(this.getWidth()/2)*i1,this.getWidth(),(this.getWidth()/2),this.color,this.cur_color,this.enabled_color,module,this.group));
             this.renderers.add(renderer);
         }
     }

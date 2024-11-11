@@ -2,6 +2,7 @@ package cn.ksmcbrigade.scb.mixin.render.gui;
 
 import cn.ksmcbrigade.scb.SimpleClientBase;
 import cn.ksmcbrigade.scb.guis.KeyboardSetting;
+import cn.ksmcbrigade.scb.guis.configuration.configurationScreen;
 import cn.ksmcbrigade.scb.module.Config;
 import cn.ksmcbrigade.scb.module.Module;
 import cn.ksmcbrigade.scb.uitls.JNAUtils;
@@ -13,8 +14,10 @@ import net.minecraft.client.gui.screens.options.AccessibilityOptionsScreen;
 import net.minecraft.client.gui.screens.options.OptionsSubScreen;
 import net.minecraft.network.chat.Component;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.awt.event.KeyEvent;
@@ -25,9 +28,15 @@ import java.util.List;
 @Mixin(AccessibilityOptionsScreen.class)
 public abstract class AccessibilityOptionsScreenMixin extends OptionsSubScreen {
 
+    private static Screen last;
 
     public AccessibilityOptionsScreenMixin(Screen p_345104_, Options p_346116_, Component p_344987_) {
         super(p_345104_, p_346116_, p_344987_);
+    }
+
+    @Inject(method = "<init>",at = @At("TAIL"))
+    private void init(Screen p_344941_, Options p_344986_, CallbackInfo ci){
+        last = p_344941_;
     }
 
     @Inject(method = "options",at = @At("RETURN"), cancellable = true)
@@ -44,12 +53,11 @@ public abstract class AccessibilityOptionsScreenMixin extends OptionsSubScreen {
                         module.setEnabled(zt.booleanValue());
                     }
                     else if(shift){
-                        MC.setScreen(new KeyboardSetting(module));
+                        MC.setScreen(new KeyboardSetting(module,new AccessibilityOptionsScreen(last,Minecraft.getInstance().options)));
                     }
                     else {
                         if(module.getConfig()!=null){
-                            File pathFile = new File(Config.configDir,module.getConfig().file.getPath()+".json");
-                            Runtime.getRuntime().exec(new String[]{"cmd.exe","/c","notepad.exe",pathFile.getPath()});
+                            Minecraft.getInstance().setScreen(new configurationScreen(new AccessibilityOptionsScreen(last,Minecraft.getInstance().options),module));
                         }
                         module.setEnabled(zt.booleanValue());
                     }

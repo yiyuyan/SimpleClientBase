@@ -9,3 +9,6 @@
 /effect clear
 /effect give @s minecraft:darkness
 /give @s minecraft:flint_and_steel
+/time set day
+/summon minecraft:fireball
+/summon minecraft:end_crystal

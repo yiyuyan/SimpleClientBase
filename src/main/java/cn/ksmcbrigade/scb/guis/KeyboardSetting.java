@@ -19,11 +19,13 @@ import java.io.IOException;
 public class KeyboardSetting extends Screen {
 
     public boolean n = false;
+    public Screen last;
     public Module module;
 
-    public KeyboardSetting(Module module) {
+    public KeyboardSetting(Module module,Screen last) {
         super(Component.nullToEmpty("Press anything key to setting the module's key: "+module.getName()));
         this.module = module;
+        this.last = last;
         if(JNAUtils.JNAInstance.INSTANCE!=null){
             WinDef.POINT pos = new WinDef.POINT();
             JNAUtils.JNAInstance.INSTANCE.GetCursorPos(pos);
@@ -71,5 +73,10 @@ public class KeyboardSetting extends Screen {
         }
         this.onClose();
         return true;
+    }
+
+    @Override
+    public void onClose() {
+        Minecraft.getInstance().setScreen(this.last);
     }
 }

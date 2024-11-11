@@ -414,6 +414,54 @@ public class HacksEventHandler {
         });
     }
 
+    @SubscribeEvent
+    public static void event12(RenderEntityEvent event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.renderEntity(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event13(RenderEntityPreEvent event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.preRenderEntity(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event14(RenderedEntityEvent event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.renderedEntity(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     @SubscribeEvent()
     public static void command(ClientChatEvent event) throws Exception {
         String message = event.getMessage();

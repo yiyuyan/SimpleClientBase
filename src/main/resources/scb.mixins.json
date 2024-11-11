@@ -22,6 +22,7 @@
     "render.renderer.ClientLevelMixin",
     "render.renderer.GameRendererMixin",
     "render.renderer.GuiMixin",
+    "render.renderer.LevelRendererMixin",
     "render.renderer.ScreenEffectRendererMixin"
   ],
   "injectors": {

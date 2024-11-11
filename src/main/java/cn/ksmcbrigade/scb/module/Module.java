@@ -141,4 +141,8 @@ public class Module {
     public void hasEffect(Minecraft mc, CheckHasEffectEvent event) throws Exception{}
 
     public void renderFire(Minecraft mc, RenderFireEvent event) throws Exception{}
+
+    public void preRenderEntity(Minecraft mc, RenderEntityPreEvent event) throws Exception{}
+    public void renderEntity(Minecraft mc, RenderEntityEvent event) throws Exception{}
+    public void renderedEntity(Minecraft mc, RenderedEntityEvent event) throws Exception{}
 }
