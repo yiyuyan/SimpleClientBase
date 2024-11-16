@@ -13,6 +13,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.client.event.ScreenshotEvent;
 
 import javax.annotation.Nullable;
 import java.io.File;
@@ -109,7 +110,7 @@ public class Module {
 
     public void keyInput(int key, boolean screen) throws Exception{}
 
-    public JsonObject screenshot(JsonObject data) throws Exception{return data;}
+    public JsonObject screenshot(JsonObject data, ScreenshotEvent event) throws Exception{return data;}
 
     public void clientTick(Minecraft MC) throws Exception{}
     public void clientPostTick(Minecraft MC) throws Exception{}

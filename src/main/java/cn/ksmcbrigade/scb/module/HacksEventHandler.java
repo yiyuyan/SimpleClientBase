@@ -14,6 +14,10 @@ import cn.ksmcbrigade.scb.uitls.JNAUtils;
 import cn.ksmcbrigade.scb.SimpleClientBase;
 import com.google.gson.JsonObject;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.EditBox;
+import net.minecraft.client.gui.components.MultiLineEditBox;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.options.AccessibilityOptionsScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -26,6 +30,7 @@ import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
 import java.io.File;
+import java.lang.reflect.Field;
 
 @EventBusSubscriber(value = Dist.CLIENT,modid = SimpleClientBase.MODID)
 public class HacksEventHandler {
@@ -83,6 +88,19 @@ public class HacksEventHandler {
     public static void key(InputEvent.Key event) throws Exception {
         while (!SimpleClientBase.init){
             SimpleClientBase.init();
+        }
+
+        if(Minecraft.getInstance().screen!=null){
+            Screen instance = Minecraft.getInstance().screen;
+            for (Field declaredField : instance.getClass().getDeclaredFields()) {
+                if(declaredField.getType().equals(EditBox.class) || declaredField.getType().equals(MultiLineEditBox.class)){
+                    declaredField.setAccessible(true);
+                    AbstractWidget widget = (AbstractWidget) declaredField.get(instance);
+                    if(widget.isFocused()){
+                        return;
+                    }
+                }
+            }
         }
 
         if(Boolean.parseBoolean(System.getProperty("java.awt.headless"))){
@@ -218,13 +236,12 @@ public class HacksEventHandler {
 
         try {
             JsonObject data = new JsonObject();
-            data.addProperty("result",event.getResultMessage().getString());
+            //data.addProperty("result",event.getResultMessage().getString());
             data.addProperty("file",event.getScreenshotFile().getPath());
             SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
                 try {
-                    JsonObject newData = module.screenshot(data);
+                    JsonObject newData = module.screenshot(data,event);
                     if(newData!=data){
-                        event.setResultMessage(Component.nullToEmpty(newData.get("result").getAsString()));
                         event.setScreenshotFile(new File(newData.get("file").getAsString()));
                     }
                 } catch (Exception e) {
