@@ -44,12 +44,15 @@ public class ConfigList extends ContainerObjectSelectionList<ConfigList.ConfigEn
             if(element instanceof JsonPrimitive primitive){
                 if(primitive.isBoolean()){
                     this.addEntry(new BooleanEntry(this.module,this,false,s));
+                    continue;
                 }
-                if(JsonTypeChecker.isInt(element) && !JsonTypeChecker.isFloat(element) && !JsonTypeChecker.isFloat(element)){
+                if(JsonTypeChecker.isInt(element) && !JsonTypeChecker.isFloat(element) && !JsonTypeChecker.isDouble(element)){
                     this.addEntry(new IntEntry(this.module,this,false,s));
+                    continue;
                 }
                 if(JsonTypeChecker.isDouble(element)){
                     this.addEntry(new DoubleEntry(this.module,this,false,s));
+                    continue;
                 }
                 if(primitive.isString()){
                     this.addEntry(new StringEntry(this.module,this,false,s));
@@ -104,7 +107,7 @@ public class ConfigList extends ContainerObjectSelectionList<ConfigList.ConfigEn
             this.setModule = setModule;
             this.ConfigKey = key;
 
-            this.checkbox = Checkbox.builder(Component.nullToEmpty(this.ConfigKey),Minecraft.getInstance().font).selected(this.setModule?module.enabled:module.getConfig().get(ConfigKey).getAsBoolean()).onValueChange((var,var02)->{
+            this.checkbox = Checkbox.builder(Component.nullToEmpty(""),Minecraft.getInstance().font).selected(this.setModule?module.enabled:module.getConfig().get(ConfigKey).getAsBoolean()).onValueChange((var,var02)->{
                 if(this.setModule){
                     try {
                         this.module.setEnabled(var02);
