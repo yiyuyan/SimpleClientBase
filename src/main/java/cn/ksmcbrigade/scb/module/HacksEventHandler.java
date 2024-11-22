@@ -26,6 +26,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.*;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.tick.LevelTickEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 
@@ -473,6 +474,54 @@ public class HacksEventHandler {
         SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
             try {
                 module.renderedEntity(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event15(PlayerInteractEvent.RightClickBlock event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.rightBlock(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event16(PlayerInteractEvent.RightClickEmpty event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.rightEmpty(MC,event);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @SubscribeEvent
+    public static void event17(RenderLevelStageEvent event) throws Exception {
+        while (!SimpleClientBase.init){
+            SimpleClientBase.init();
+        }
+
+        Minecraft MC = Minecraft.getInstance();
+        SimpleClientBase.modules.stream().filter(module -> module.enabled).toList().forEach(module -> {
+            try {
+                module.renderLevel(MC,event);
             } catch (Exception e) {
                 e.printStackTrace();
             }

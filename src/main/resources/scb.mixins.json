@@ -2,7 +2,7 @@
   "required": true,
   "minVersion": "0.8",
   "package": "cn.ksmcbrigade.scb.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_21",
   "refmap": "SimpleClientBase.refmap.json",
   "mixins": [
     "block.BlockMixin",

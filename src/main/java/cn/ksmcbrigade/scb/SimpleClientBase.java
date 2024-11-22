@@ -10,6 +10,7 @@ import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoFireOverlay;
 import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoPumpkinOverlay;
 import cn.ksmcbrigade.scb.BuiltInModules.overlay.NoUnderOverlay;
 import cn.ksmcbrigade.scb.BuiltInModules.render.*;
+import cn.ksmcbrigade.scb.BuiltInModules.render.esp.*;
 import cn.ksmcbrigade.scb.alt.AltManager;
 import cn.ksmcbrigade.scb.commands.Help;
 import cn.ksmcbrigade.scb.commands.Pos;
@@ -131,6 +132,14 @@ public class SimpleClientBase {
 
         ModuleUtils.add(new OnlyMe());
         ModuleUtils.add(new Chams());
+
+        ModuleUtils.add(new ChestESP());
+        ModuleUtils.add(new PlayerESP());
+        ModuleUtils.add(new MobESP());
+        ModuleUtils.add(new AnimalESP());
+        ModuleUtils.add(new MonsterESP());
+        ModuleUtils.add(new EntityESP());
+        ModuleUtils.add(new ProjectileESP());
 
         ModuleUtils.add(new Timer());
 

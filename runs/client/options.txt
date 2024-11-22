@@ -15,14 +15,14 @@ prioritizeChunkUpdates:0
 fullscreen:false
 graphicsMode:1
 guiScale:2
-maxFps:120
+maxFps:260
 mipmapLevels:4
 narrator:0
 particles:0
 reducedDebugInfo:false
 renderClouds:"true"
 renderDistance:12
-simulationDistance:12
+simulationDistance:14
 screenEffectScale:1.0
 soundDevice:""
 autoJump:false
@@ -128,7 +128,7 @@ key_RightTurnTheFeaturesList:key.keyboard.right
 key_SetTurnTheFeaturesList:key.keyboard.enter
 key_StartTheFeatureList02:key.keyboard.right.control
 key_Zoom:key.keyboard.b
-soundCategory_master:1.0
+soundCategory_master:0.016556291390728478
 soundCategory_music:1.0
 soundCategory_record:1.0
 soundCategory_weather:1.0

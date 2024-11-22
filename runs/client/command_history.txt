@@ -12,3 +12,7 @@
 /time set day
 /summon minecraft:fireball
 /summon minecraft:end_crystal
+/give @s minecraft:chest
+/give @s minecraft:shulker_box
+/tp 247 -20 -41
+/summon minecraft:sheep

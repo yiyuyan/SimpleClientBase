@@ -13,7 +13,9 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent;
 import net.neoforged.neoforge.client.event.ScreenshotEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
 import javax.annotation.Nullable;
 import java.io.File;
@@ -146,4 +148,9 @@ public class Module {
     public void preRenderEntity(Minecraft mc, RenderEntityPreEvent event) throws Exception{}
     public void renderEntity(Minecraft mc, RenderEntityEvent event) throws Exception{}
     public void renderedEntity(Minecraft mc, RenderedEntityEvent event) throws Exception{}
+
+    public void rightBlock(Minecraft mc, PlayerInteractEvent.RightClickBlock event) throws Exception{}
+    public void rightEmpty(Minecraft mc, PlayerInteractEvent.RightClickEmpty event) throws Exception{}
+
+    public void renderLevel(Minecraft mc, RenderLevelStageEvent event) throws Exception{}
 }
