@@ -53,7 +53,7 @@ public class PlayerESP extends Module {
         }
         for (Player player:Minecraft.getInstance().level.players()) {
             if(player.getId()==Minecraft.getInstance().player.getId()){
-                return;
+                continue;
             }
             if(player.isSleeping() && getConfig().get("blockSleeping").getAsBoolean()){
                 continue;

@@ -56,19 +56,19 @@ public class ProjectileESP extends Module {
         if(Minecraft.getInstance().player==null) return;
         for (Projectile entity:Minecraft.getInstance().level.getEntitiesOfClass(Projectile.class,new AABB(Minecraft.getInstance().player.getPosition(0),Minecraft.getInstance().player.getPosition(0)).inflate(Minecraft.getInstance().options.getEffectiveRenderDistance()*16))) {
             if(entity instanceof WitherSkull && getConfig().get("blockWitherSkulls").getAsBoolean()){
-                return;
+                continue;
             }
             if(entity instanceof Fireball && getConfig().get("blockFireBalls").getAsBoolean()){
-                return;
+                continue;
             }
             if(entity instanceof DragonFireball && getConfig().get("blockDragonBalls").getAsBoolean()){
-                return;
+                continue;
             }
             if(entity instanceof WindCharge && getConfig().get("blockWindCharges").getAsBoolean()){
-                return;
+                continue;
             }
             if(entity instanceof Snowball && getConfig().get("blockSnowBalls").getAsBoolean()){
-                return;
+                continue;
             }
             RenderUtils.renderPlayer(event.getPoseStack(),event.getModelViewMatrix(),event.getProjectionMatrix(),entity.getPosition(0).add(-0.25,0,-0.25),entity,this.getConfig().get("red").getAsFloat()/255f,this.getConfig().get("green").getAsFloat()/255f,this.getConfig().get("blue").getAsFloat()/255f,this.getConfig().get("opacity").getAsFloat());
         }
