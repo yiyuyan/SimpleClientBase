@@ -3,6 +3,7 @@ package cn.ksmcbrigade.scb.module;
 import cn.ksmcbrigade.scb.command.Command;
 import cn.ksmcbrigade.scb.config.HUD02Config;
 import cn.ksmcbrigade.scb.guis.anotherFeatureList.FeatureList2;
+import cn.ksmcbrigade.scb.guis.anotherFeatureList.widgets.SearchBox;
 import cn.ksmcbrigade.scb.module.events.block.BlockShapeEvent;
 import cn.ksmcbrigade.scb.module.events.misc.CheckHasEffectEvent;
 import cn.ksmcbrigade.scb.module.events.misc.GetOptionValueEvent;
@@ -94,7 +95,7 @@ public class HacksEventHandler {
         if(Minecraft.getInstance().screen!=null){
             Screen instance = Minecraft.getInstance().screen;
             for (Field declaredField : instance.getClass().getDeclaredFields()) {
-                if(declaredField.getType().equals(EditBox.class) || declaredField.getType().equals(MultiLineEditBox.class)){
+                if(declaredField.getType().equals(EditBox.class) || declaredField.getType().equals(MultiLineEditBox.class) || declaredField.getType().equals(SearchBox.class)){
                     declaredField.setAccessible(true);
                     AbstractWidget widget = (AbstractWidget) declaredField.get(instance);
                     if(widget.isFocused()){
